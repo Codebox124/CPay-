@@ -1,3 +1,7 @@
+import 'package:awesome_icons/awesome_icons.dart';
+import 'package:c_pay/widgets/HomePage/balace.dart';
+import 'package:c_pay/widgets/HomePage/earnings.dart';
+import 'package:c_pay/widgets/HomePage/transaction.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,139 +12,77 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(255, 254, 254, 0.932),
+      backgroundColor: Color.fromRGBO(238, 234, 234, 1),
       body: Padding(
         padding: const EdgeInsets.only(top: 60, left: 20, right: 20),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CircleAvatar(
-                  child: Image.asset("assets/img/pro.png"),
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "Good Morning!",
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
-                    ),
-                    Text(
-                      "Raji Roqeeb",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 2,
-                      ),
-                    )
-                  ],
-                ),
-                Icon(Icons.notifications_rounded)
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 25),
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircleAvatar(
+                    child: Image.asset("assets/img/pro.png"),
+                  ),
+                  Column(
                     children: [
                       Text(
-                        'Total Balance',
-                        style: TextStyle(color: Colors.white, fontSize: 13),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(
-                          "#45,000.40",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold),
+                        "Good Morning!",
+                        style: TextStyle(
+                          fontSize: 12,
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "My Wallet",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                          Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Icon(Icons.arrow_forward),
-                          )
-                        ],
+                      Text(
+                        "Raji Roqeeb",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 2,
+                        ),
                       )
                     ],
                   ),
-                ),
-                height: 170,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 31, 30, 30),
-                ),
+                  Icon(Icons.notifications_rounded)
+                ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 31, 30, 30),
-                ),
-                height: 100,
-                width: double.infinity,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                     mainAxisAlignment: MainAxisAlignment.,
-                    children: [
-                      Image.asset(
-                        'assets/img/Arrow_left.png',
-                        width: 40,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Income",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            "#20,000",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          )
-                        ],
-                      ),
-
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
+              Balance(),
+              Transaction(),
+              Earnings(),
+           
+            ],
+          ),
         ),
+      ),
+      bottomNavigationBar: NavigationBar(
+        
+        backgroundColor: Colors.white,
+        selectedIndex: _currentIndex,
+        // onDestinationSelected: (index) {
+        //   _currentIndex = index;
+
+        //   if (index == 0) {
+        //     Navigator.push(
+        //         context, MaterialPageRoute(builder: (context) => HomePage()));
+        //   } else if (index == 1) {
+        //     Navigator.push(context,
+        //         MaterialPageRoute(builder: (context) => ProfilePage()));
+        //   }
+        // },
+        height: 90,
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.home_filled),
+            label: "Home",
+          ),
+          NavigationDestination(
+              icon: Icon(Icons.wallet), label: "wallet"),
+          NavigationDestination(icon: Icon(Icons.bar_chart_sharp), label: "Transactions"),
+          NavigationDestination(icon: Icon(Icons.person), label: "Profile")
+        ],
       ),
     );
   }
