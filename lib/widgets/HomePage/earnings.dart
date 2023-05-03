@@ -20,7 +20,7 @@ class _EarningsState extends State<Earnings> {
               Text(
                 "Earnings",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize:24 ,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -29,7 +29,7 @@ class _EarningsState extends State<Earnings> {
                 style: TextStyle(
                     color: Colors.blue,
                     fontWeight: FontWeight.bold,
-                    fontSize: 18),
+                    fontSize: 12),
               )
             ],
           ),

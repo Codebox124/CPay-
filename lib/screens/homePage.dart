@@ -1,7 +1,9 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:c_pay/widgets/HomePage/balace.dart';
 import 'package:c_pay/widgets/HomePage/earnings.dart';
+import 'package:c_pay/widgets/HomePage/savings.dart';
 import 'package:c_pay/widgets/HomePage/transaction.dart';
+import 'package:c_pay/widgets/HomePage/transactions.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                     child: Image.asset("assets/img/pro.png"),
                   ),
                   Column(
-                    children: [
+                    children: const [
                       Text(
                         "Good Morning!",
                         style: TextStyle(
@@ -52,6 +54,9 @@ class _HomePageState extends State<HomePage> {
               Balance(),
               Transaction(),
               Earnings(),
+              Savings(),
+              Ttansactions()
+            
            
             ],
           ),
@@ -73,7 +78,7 @@ class _HomePageState extends State<HomePage> {
         //   }
         // },
         height: 90,
-        destinations: [
+        destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home_filled),
             label: "Home",
