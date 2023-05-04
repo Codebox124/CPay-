@@ -25,7 +25,7 @@ class _BalanceState extends State<Balance> {
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Text(
-                          "₦10,000",
+                          "₦40,000",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 35,

@@ -1,4 +1,5 @@
-import 'package:c_pay/widgets/savings_item.dart';
+import 'package:c_pay/screens/savingsPage.dart';
+import 'package:c_pay/widgets/HomePage/savings_item.dart';
 import 'package:flutter/material.dart';
 
 class Savings extends StatefulWidget {
@@ -25,18 +26,25 @@ class _SavingsState extends State<Savings> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "See All",
-                style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SavingPage()));
+                },
+                child: Container(
+                  child: Text(
+                    "See All",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12),
+                  ),
+                ),
               )
             ],
           ),
           SavingsItem(),
           SavingsItem(),
-        
         ],
       ),
     );
